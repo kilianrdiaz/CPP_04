@@ -10,33 +10,37 @@ int main()
     std::cout << "=== Polymorphism example ===" << std::endl;
     {
         const Animal* meta = new Animal();
-        const Animal* j = new Dog();
-        const Animal* i = new Cat();
+        const Animal* d = new Dog();
+        const Animal* c = new Cat();
 
-        std::cout << j->getType() << " " << std::endl;
-        std::cout << i->getType() << " " << std::endl;
+        std::cout << c->getType() << " " << std::endl;
+        std::cout << d->getType() << " " << std::endl;
 
-        i->makeSound();
-        j->makeSound();
+        c->makeSound();
+        d->makeSound();
         meta->makeSound();
 
         delete meta;
-        delete j;
-        delete i;
+        delete d;
     }
 
     std::cout << std::endl << "=== WrongAnimal example (no virtual) ===" << std::endl;
     {
         const WrongAnimal* meta = new WrongAnimal();
-        const WrongAnimal* wc = new WrongCat();
+        const WrongAnimal* wac = new WrongCat();
+        const WrongCat* wc = new WrongCat();
 
-        std::cout << "WrongCat type via WrongAnimal*: " << wc->getType() << std::endl;
+        std::cout << meta->getType() << " " << std::endl;
+        std::cout << wac->getType() << " " << std::endl;
+        std::cout << wc->getType() << " " << std::endl;
 
-        wc->makeSound();
         meta->makeSound();
+        wc->makeSound();
+        wac->makeSound();
 
         delete meta;
         delete wc;
+        delete wac;
     }
 
     return 0;
