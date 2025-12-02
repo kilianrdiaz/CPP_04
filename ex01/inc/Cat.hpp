@@ -19,4 +19,4 @@ public:
     Brain* getBrain() const;
 };
 
-#endif // CAT_HPP
+#endif

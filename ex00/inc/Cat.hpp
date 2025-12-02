@@ -14,4 +14,4 @@ class Cat : public Animal
         virtual void makeSound() const;
 };
 
-#endif // CAT_HPP
+#endif

@@ -14,4 +14,4 @@ class Dog : public Animal
         virtual void makeSound() const;
 };
 
-#endif // DOG_HPP
+#endif

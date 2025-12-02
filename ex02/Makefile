@@ -1,41 +1,39 @@
-# **************************************************************************** #
-#                                   SETTINGS                                   #
-# **************************************************************************** #
-
 NAME        = ex02
+
 CXX         = c++
-CXXFLAGS    = -Wall -Wextra -Werror -std=c++98 -Iinc
+CXXFLAGS    = -Wall -Wextra -Werror -std=c++98 -I inc
 
-SRC_DIR     = src
-INC_DIR     = inc
-OBJ_DIR     = obj
+SRCDIR      = src
+INCDIR      = inc
+OBJDIR      = obj
 
-# Coge automáticamente todos los .cpp dentro de src/
-SRC         = $(wildcard $(SRC_DIR)/*.cpp)
-OBJ         = $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC))
+SRC         = $(SRCDIR)/main.cpp \
+              $(SRCDIR)/AAnimal.cpp \
+              $(SRCDIR)/Dog.cpp \
+              $(SRCDIR)/Cat.cpp \
+              $(SRCDIR)/Brain.cpp
 
-# **************************************************************************** #
-#                                   RULES                                      #
-# **************************************************************************** #
+OBJ         = $(SRC:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
-	@echo "🎉 Build complete: $(NAME)"
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
-# Compila cada .cpp en un .o dentro de obj/
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
-	@mkdir -p $(OBJ_DIR)
-	@$(CXX) $(CXXFLAGS) -c $< -o $@
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp | $(OBJDIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(OBJ): $(INCDIR)/AAnimal.hpp $(INCDIR)/Cat.hpp $(INCDIR)/Dog.hpp \
+		$(INCDIR)/Brain.hpp Makefile 
+
+$(OBJDIR):
+	mkdir -p $(OBJDIR)
 
 clean:
-	@rm -rf $(OBJ_DIR)
-	@echo "🧹 Objects removed."
+	rm -rf $(OBJDIR)
 
 fclean: clean
-	@rm -f $(NAME)
-	@echo "🧨 Executable removed."
+	rm -f $(NAME)
 
 re: fclean all
 

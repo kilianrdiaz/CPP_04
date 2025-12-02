@@ -18,4 +18,4 @@ public:
     virtual void makeSound() const;
 };
 
-#endif // ANIMAL_HPP
+#endif

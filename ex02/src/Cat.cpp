@@ -8,7 +8,7 @@ Cat::Cat(void)
     std::cout << "Cat constructed (with Brain)." << std::endl;
 }
 
-Cat::Cat(const Cat& other) : Animal(other)
+Cat::Cat(const Cat& other) : AAnimal(other)
 {
     this->brain = new Brain(*other.brain);
     std::cout << "Cat copy-constructed (deep copy Brain)." << std::endl;
@@ -18,7 +18,7 @@ Cat& Cat::operator=(const Cat& other)
 {
     if (this != &other)
     {
-        Animal::operator=(other);
+        AAnimal::operator=(other);
         delete this->brain;
         this->brain = new Brain(*other.brain);
     }

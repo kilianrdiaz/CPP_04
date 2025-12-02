@@ -1,15 +1,21 @@
 #include <iostream>
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 
 int main()
 {
-    // Animal a; // ❌ Debe fallar porque ahora Animal es abstracta
+    //AAnimal a; // ❌ Debe fallar porque ahora Animal es abstracta
 
-    Animal* list[4];
+    AAnimal* list[4];
+
     for (int i = 0; i < 4; i++)
-        list[i] = (i % 2 == 0) ? (Animal*)new Dog() : (Animal*)new Cat();
+    {
+        if (i % 2 == 0)
+            list[i] = new Dog();
+        else
+            list[i] = new Cat();
+    }
 
     for (int i = 0; i < 4; i++)
         list[i]->makeSound();
@@ -19,3 +25,4 @@ int main()
 
     return 0;
 }
+

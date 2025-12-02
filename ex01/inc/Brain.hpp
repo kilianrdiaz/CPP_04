@@ -18,4 +18,4 @@ public:
     std::string getIdea(int index) const;
 };
 
-#endif // BRAIN_HPP
+#endif

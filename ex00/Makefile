@@ -1,4 +1,4 @@
-NAME        = ex00_bin
+NAME        = ex00
 
 CXX         = c++
 CXXFLAGS    = -Wall -Wextra -Werror -std=c++98 -I inc
@@ -14,7 +14,7 @@ SRC         = $(SRCDIR)/main.cpp \
               $(SRCDIR)/WrongAnimal.cpp \
               $(SRCDIR)/WrongCat.cpp
 
-OBJ         = $(patsubst $(SRCDIR)/%.cpp,$(OBJDIR)/%.o,$(SRC))
+OBJ         = $(SRC:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
 
 all: $(NAME)
 
@@ -23,6 +23,9 @@ $(NAME): $(OBJ)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp | $(OBJDIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(OBJ): $(INCDIR)/Animal.hpp $(INCDIR)/Cat.hpp $(INCDIR)/Dog.hpp \
+		$(INCDIR)/WrongAnimal.hpp $(INCDIR)/WrongCat.hpp Makefile 
 
 $(OBJDIR):
 	mkdir -p $(OBJDIR)
