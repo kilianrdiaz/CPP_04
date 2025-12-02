@@ -16,9 +16,9 @@ int main()
         std::cout << j->getType() << " " << std::endl;
         std::cout << i->getType() << " " << std::endl;
 
-        i->makeSound(); // Cat sound
-        j->makeSound(); // Dog sound
-        meta->makeSound(); // Animal generic sound
+        i->makeSound();
+        j->makeSound();
+        meta->makeSound();
 
         delete meta;
         delete j;
@@ -32,7 +32,7 @@ int main()
 
         std::cout << "WrongCat type via WrongAnimal*: " << wc->getType() << std::endl;
 
-        wc->makeSound();     // Calls WrongAnimal::makeSound (NOT WrongCat)
+        wc->makeSound();
         meta->makeSound();
 
         delete meta;
