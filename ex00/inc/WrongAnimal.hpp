@@ -12,10 +12,10 @@ class WrongAnimal
         WrongAnimal(void);
         WrongAnimal(const WrongAnimal& other);
         WrongAnimal& operator=(const WrongAnimal& other);
-        ~WrongAnimal(void); // NOT virtual on purpose
+        ~WrongAnimal(void);
 
         std::string getType() const;
-        void makeSound() const; // NOT virtual on purpose
+        void makeSound() const;
 };
 
-#endif // WRONGANIMAL_HPP
+#endif

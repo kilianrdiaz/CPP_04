@@ -29,6 +29,3 @@ std::string AAnimal::getType() const
 {
     return type;
 }
-
-// ⚠️ NO existe implementación de makeSound()
-// porque es PURA VIRTUAL en ex02.

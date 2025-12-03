@@ -16,7 +16,7 @@ class AAnimal
 
         std::string getType() const;
 
-        virtual void makeSound() const = 0;  // <- HACE LA CLASE ABSTRACTA
+        virtual void makeSound() const = 0;
 };
 
 #endif

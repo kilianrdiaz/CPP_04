@@ -5,7 +5,7 @@
 
 int main()
 {
-    //AAnimal a; // ❌ Debe fallar porque ahora Animal es abstracta
+    //AAnimal a; // Debe fallar porque ahora AAnimal es abstracta
 
     AAnimal* list[4];
 

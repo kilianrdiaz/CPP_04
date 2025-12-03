@@ -22,6 +22,7 @@ int main()
 
         delete meta;
         delete d;
+        delete c;
     }
 
     std::cout << std::endl << "=== WrongAnimal example (no virtual) ===" << std::endl;

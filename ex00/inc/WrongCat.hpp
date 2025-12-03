@@ -11,7 +11,7 @@ class WrongCat : public WrongAnimal
         WrongCat& operator=(const WrongCat& other);
         ~WrongCat(void);
 
-        void makeSound() const; // hides WrongAnimal::makeSound (not virtual)
+        void makeSound() const;
 };
 
-#endif // WRONGCAT_HPP
+#endif
